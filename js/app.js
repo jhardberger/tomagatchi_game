@@ -1,21 +1,45 @@
-console.log("we love tomagatchi");
+// console.log("we love tomagatchi");
 
-//class Tomagotchi = {
+class Tomagotchi {
 	//constructor() will include parameter for name and image
+		// method interval()=> {
+		// 	increases over time	
+		// 	every 30 seconds choose a variable 1-3, raise one stat accordingly
+		// } 
+	constructor(name, img) {
+		this.name = name;
+		this.img = img;
+		this.age = 0;
+		this.hunger = 5;
+		this.sleepiness = 5;
+		this.boredom = 5;
+		this.interval = () =>{
+		scope.setInterval(/*function()=>{returns random num}*/ 20000) 
+		};
 
-	//method interval()=> {
-	//	increases over time	
-	//	every 30 seconds choose a variable 1-3, raise one stat accordingly
-	//} 
+
+
+
 	
+	}
+
+
 	//age -> increases at interval - on the minute
 
 	//hunger -> increases on interval1
 	//sleepiness -> increases on interval2
 	//boredom -> increases on interval3
+
+
+};
+
 	//die () => {
 	//		if hunger OR sleepiness OR boredom === 10, 
 	//			trigger death() method
+
+	// die() {
+
+	// }
 	
 	//emote() => {
 	//		only going to mess with this after MVP - animation reaction? 
@@ -31,7 +55,8 @@ console.log("we love tomagatchi");
 	//eggCounter -> increases every 30. 
 	//when it reaches a certain point, instantiates a new tomagotchi
 
-//}
+
+const jim = new Tomagotchi('Jim', 'img.url');
 
 // class Tomagotchi = {
 // 	constructor () {
