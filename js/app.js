@@ -13,9 +13,10 @@ class Tomagotchi {
 		this.hunger = 5;
 		this.sleepiness = 5;
 		this.boredom = 5;
-		this.interval = () =>{
-				setInterval(this.statGrower(), 20000) 
-			};
+	}
+
+/*
+These were jetisoned from my Tomagotchi for the sake of simplifying - trying to fit all that (below) stuff. don't need it in the object itself
 		this.statGrower = () =>{
 				let statInt = Math.floor((Math.random() * 3) +1);
 				if (statInt === 1) {
@@ -26,18 +27,14 @@ class Tomagotchi {
 					this.boredom++;
 				}
 			};
+
+
 		this.ageUp = () => {
 				if ((this.interval() % 60000) === 0) {
-					this.age++;
+					this.age++
 				}
 			};
-
-
-
-
-	
-	}
-
+*/
 
 	//age -> increases at interval - on the minute
 
@@ -71,18 +68,37 @@ class Tomagotchi {
 	//when it reaches a certain point, instantiates a new tomagotchi
 
 
-const jim = new Tomagotchi('Jim', 'img.url');
-
 // class Tomagotchi = {
 // 	constructor () {
 // 	}
 // };
 
+	
+//buttons, etc. 
+
+	//feedButton on click -> call feed() 
+
+	//lightsOutButton on click -> calls night()
+
+	//playButton -> calls play()
+
+
 //game object
 
-const game = {
 
-	// 	startGame
+
+const game = {
+	
+	timer(){ setInterval( ()=>{console.log('time is passing')}, 2000)},
+
+	startGame(){
+
+		const jim = new Tomagotchi('Jim', 'img.url');
+		
+		this.timer();
+
+		
+	}
 		
 		//instantiates Tomagatchi with name, img
 		//is there any way to win this? 
@@ -96,14 +112,9 @@ const game = {
 			//	name: "dury crow"
 			//	img: "TKTK"
 			//}
+		//timer()
 
-	//buttons, etc. 
 
-		//feedButton on click -> call feed() 
-
-		//lightsOutButton on click -> calls night()
-
-		//playButton -> calls play()
 
 	//methods: 
 
@@ -133,3 +144,4 @@ const game = {
 		//	instantiates new super tomagatchi
 		//}	
 };
+
