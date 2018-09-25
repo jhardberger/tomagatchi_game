@@ -14,8 +14,23 @@ class Tomagotchi {
 		this.sleepiness = 5;
 		this.boredom = 5;
 		this.interval = () =>{
-		scope.setInterval(/*function()=>{returns random num}*/ 20000) 
-		};
+				setInterval(this.statGrower(), 20000) 
+			};
+		this.statGrower = () =>{
+				let statInt = Math.floor((Math.random() * 3) +1);
+				if (statInt === 1) {
+					this.hunger++
+				} if (statInt === 2) {
+					this.sleepiness++
+				} if (statInt === 3) {
+					this.boredom++;
+				}
+			};
+		this.ageUp = () => {
+				if ((this.interval() % 60000) === 0) {
+					this.age++;
+				}
+			};
 
 
 
