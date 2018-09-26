@@ -26,18 +26,7 @@ class Tomagotchi {
 	}
 };
 
-/************************************************************************
-DIE METHOD?
-
-if (jim.hunger >= 10 || jim.sleepiness >= 10 || jim.boredom >= 10) {
-	console.log(this.name + "dead");
-	clearInterval();
-};	
-^^this goes in here somewhere but I'm not sure how yet
-*************************************************************************/	
-
-
-/***********************************************************************
+/**********************************************************************
 NOTES + PSEUDO
 
 CONSTRUCTOR PSEUDO
@@ -48,7 +37,15 @@ constructor() will include parameter for name and image
 			every 30 seconds choose a variable 1-3, raise one stat accordingly
 		}  
 
-CLASS EXTRAS
+DIE METHOD
+
+if (jim.hunger >= 10 || jim.sleepiness >= 10 || jim.boredom >= 10) {
+	console.log(this.name + "dead");
+	clearInterval();
+};	
+^^this goes in here somewhere but I'm not sure how yet
+
+CLASS LEFTOVERS
 
 These were jetisoned from my Tomagotchi for the sake of simplifying - trying to fit all that (below) stuff. don't need it in the object itself
 		this.statGrower = () =>{
@@ -101,36 +98,35 @@ class SuperTomagotchi = {
 	eggCounter -> increases every 30. 
 	when it reaches a certain point, instantiates a new tomagotchi
 
-************************************************************************/
-//stats, etc.  (other listeners)
+stats, etc.  (other listeners)
 
-// let $hungry = $('#hungry').append(jim.hunger);
-// let $sleepy = $('#sleepy').append(jim.sleepiness);
-// let $bored = $('#bored').append(jim.boredom);
+let $hungry = $('#hungry').append(jim.hunger);
+let $sleepy = $('#sleepy').append(jim.sleepiness);
+let $bored = $('#bored').append(jim.boredom);
 
-//hungry (or any).on('change', function () {
-//	overwrites new stat
-//})
+hungry (or any).on('change', function () {
+	overwrites new stat
+})
 
-// .on('change', function() {
-// 	$('#hungry').text('Hunger: ' + jim.hunger)
-// });
+.on('change', function() {
+	$('#hungry').text('Hunger: ' + jim.hunger)
+});
 
-// .on('change', function() {
-// 	$('#sleepy').text('Sleepiness: ' + jim.sleepiness)
-// });
+.on('change', function() {
+	$('#sleepy').text('Sleepiness: ' + jim.sleepiness)
+});
 
-// .on('change', function() {
-// 	$('#bored').text('Boredom: ' + jim.boredom)
-// });
+.on('change', function() {
+	$('#bored').text('Boredom: ' + jim.boredom)
+});
 
-//would like to maket his like more of a stat bar that rises
-
+would like to maket his like more of a stat bar that rises
 
 
-/************************************************************************
-BUTTON ZONE
-*************************************************************************/
+
+***********************************************************************
+BUTTON ZONE: 
+***********************************************************************/
 
 let $feed = $('#feed');
 let $lights = $('#lights');
@@ -191,12 +187,13 @@ const game = {
 	tom: null,
 	counter: 0,
 	intervalID: null,
+	tomImg = url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)
 	timer(){ 
 		this.intervalID = setInterval(()=>{
 			this.counter++; 
 				/*LOWER or RAISE math.floor to make game HARDER or EASIER */
 			if ((this.counter % 2) === 0) {
-				let statInteger = Math.floor((Math.random() * 3) +1);
+				let statInteger = Math.floor((Math.random() * 5) +1);
 				this.statBoost(statInteger);	
 			};
 				/*LOWER or RAISE modulus to make game SHORTER or LONGER*/
@@ -297,10 +294,4 @@ OTHER GAME OBJ NOTES/PSEUDO
 			instantiates new super tomagatchi
 		}	
 *************************************************************************/
-
-
-
-
-
-// game.startGame()
 
