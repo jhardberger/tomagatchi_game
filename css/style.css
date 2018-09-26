@@ -27,20 +27,24 @@ button {
 	margin: 10px;
 }
 
-
-.display {
-
-}
-
 .display1 {
 	display: flex;
 	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif);
 	justify-content: flex-start;
-	align-items: flex-end;
+	align-items: center;
 	flex-direction: column;
 	height: 130px;
 	width: 289;
 	margin: 0 10px 0 10px;
+}
+
+img {
+	height: 60px;
+	margin-top: 10px;
+}
+
+.display2 {
+	background-color: navy;
 }
 
 .display2 {
@@ -68,17 +72,11 @@ button {
 	align-items: center;
 	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/menu1_2_copy.png);
 	width: 128px;
-	height: 36px;
+	height: 32px;
 }
 
 #hungry, #sleepy, #bored {
 	margin: 0px 5px 5px 15px;
-}
-
-#image {
-	border-width: 1px dotted white;
-	height: 100px;
-	width: 100px;
 }
 
 @media (min-width: 375px) {

@@ -187,7 +187,6 @@ const game = {
 	tom: null,
 	counter: 0,
 	intervalID: null,
-	tomImg = url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)
 	timer(){ 
 		this.intervalID = setInterval(()=>{
 			this.counter++; 
