@@ -1,5 +1,7 @@
 body {
 	background-color: blanchedAlmond;
+	font-family: 'VT323', monospace;
+	text-transform: uppercase;
 }
 
 div {
@@ -16,19 +18,43 @@ div {
 	margin: 10px;
 }
 
-.display {
+#nameAge {
 	display: flex;
-	background-color: white;
-	justify-content: center;
-	height: 100px;
+	margin: 5px;
+}
+
+.display1 {
+	display: flex;
+	background-color: lightGray;
+	justify-content: flex-start;
+	align-items: flex-end;
+	align-content: flex-end;
+	flex-direction: column;
+	height: 130px;
 	width: flex-grow;
-	margin: 10px;
+	margin: 0 10px 0 10px;
+}
+
+.display2 {
+	display: flex;
+	background-color: lightGray;
+	justify-content: flex-end;
+	align-items: stretch;
+	align-content: flex-end;
+	flex-direction: column;
+	height: 70px;
+	width: flex-grow;
+	margin: 0 10px 0 10px;
 }
 
 .bottom {
 	display: flex;
 	justify-content: space-around;
 	margin: 10px;
+}
+
+#hungry, #sleepy, #bored {
+	margin: 0px 5px 5px 5px;
 }
 
 @media (min-width: 375px) {
