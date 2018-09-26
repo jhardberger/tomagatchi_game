@@ -4,12 +4,11 @@ body {
 	text-transform: uppercase;
 }
 
-div {
-	border: 1px dotted green;
-}
 
 .game {
-	background-color: orange;
+	background-color: lavender;
+	border: 1px solid purple;
+
 }
 
 .top {
@@ -21,14 +20,18 @@ div {
 #nameAge {
 	display: flex;
 	margin: 5px;
+	justify-content: center;
+	align-items: center;
+	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/menu1_2_copy.png);
+	width: 128px;
+	height: 32px;
 }
 
 .display1 {
 	display: flex;
-	background-color: lightGray;
+	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif);
 	justify-content: flex-start;
 	align-items: flex-end;
-	align-content: flex-end;
 	flex-direction: column;
 	height: 130px;
 	width: flex-grow;
@@ -37,13 +40,13 @@ div {
 
 .display2 {
 	display: flex;
-	background-color: lightGray;
-	justify-content: flex-end;
+	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/menu2_copy.png);
+	justify-content: center;
 	align-items: stretch;
 	align-content: flex-end;
 	flex-direction: column;
-	height: 70px;
-	width: flex-grow;
+	height: 96px;
+	width: 290;
 	margin: 0 10px 0 10px;
 }
 
@@ -54,11 +57,11 @@ div {
 }
 
 #hungry, #sleepy, #bored {
-	margin: 0px 5px 5px 5px;
+	margin: 0px 5px 5px 15px;
 }
 
 @media (min-width: 375px) {
 	.game {
-		max-width: 375px;
+		max-width: 300px;
 	}
 }

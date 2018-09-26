@@ -232,6 +232,7 @@ const game = {
 		$('#hungry').text('hngr: ' + this.tom.hunger);
 		$('#sleepy').text('slpy: ' + this.tom.sleepiness);
 		$('#bored').text('brdm: ' + this.tom.boredom);
+		$('#nameAge').text(this.tom.name + '  age:' + this.tom.age)
 
 	},
 
@@ -242,7 +243,7 @@ const game = {
 
 	endGame() {
 
-		if ((this.tom.hunger || this.tom.sleepiness || this.tom.boredom) >= 10) {
+		if (this.tom.hunger >= 10 || this.tom.sleepiness  >= 10 || this.tom.boredom >= 10) {
 		this.tom.die();
 		clearInterval(this.intervalID);
 		console.log('game over lzr');
