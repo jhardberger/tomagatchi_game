@@ -132,6 +132,7 @@ let $feed = $('#feed');
 let $lights = $('#lights');
 let $play = $('#play');
 let $start = $('#start');
+let $style = $('style');
 
 
 //feedButton on click -> call feed() 
@@ -146,7 +147,9 @@ $feed.on('click', function(){
 
 $lights.on('click', function(){
 	console.log('turn of the lights')
-	game.tom.sleepiness--;
+	// game.tom.sleepiness--;
+	$style.append('.game {background-color: purple; border: 1px solid lavender;}')
+
 	game.updateStats();
 });
 
@@ -224,12 +227,10 @@ const game = {
 	},
 
 	updateStats() {
-
 		$('#hungry').text('hngr: ' + this.tom.hunger);
 		$('#sleepy').text('slpy: ' + this.tom.sleepiness);
 		$('#bored').text('brdm: ' + this.tom.boredom);
 		$('#nameAge').text(this.tom.name + '  age:' + this.tom.age)
-
 	},
 
 	startGame(){
@@ -238,7 +239,6 @@ const game = {
 	},
 
 	endGame() {
-
 		if (this.tom.hunger >= 10 || this.tom.sleepiness  >= 10 || this.tom.boredom >= 10) {
 		this.tom.die();
 		clearInterval(this.intervalID);

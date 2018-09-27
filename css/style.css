@@ -27,6 +27,11 @@ button {
 	margin: 10px;
 }
 
+.display {
+	border: 1px solid purple;
+	margin: 0 10px 0 10px;
+}
+
 .display1 {
 	display: flex;
 	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif);
@@ -35,16 +40,11 @@ button {
 	flex-direction: column;
 	height: 130px;
 	width: 289;
-	margin: 0 10px 0 10px;
 }
 
-img {
+#kirby {
 	height: 60px;
 	margin-top: 10px;
-}
-
-.display2 {
-	background-color: navy;
 }
 
 .display2 {
@@ -56,7 +56,8 @@ img {
 	flex-direction: column;
 	height: 96px;
 	width: 289;
-	margin: 0 10px 0 10px;
+	background-color: navy;
+	z-index: -1
 }
 
 .bottom {
