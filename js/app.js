@@ -132,8 +132,6 @@ let $feed = $('#feed');
 let $lights = $('#lights');
 let $play = $('#play');
 let $start = $('#start');
-let $style = $('style');
-
 
 //feedButton on click -> call feed() 
 
@@ -148,7 +146,7 @@ $feed.on('click', function(){
 $lights.on('click', function(){
 	console.log('turn of the lights')
 	// game.tom.sleepiness--;
-	$style.append('.game {background-color: purple; border: 1px solid lavender;}')
+	game.nightPhase();
 
 	game.updateStats();
 });
@@ -236,6 +234,12 @@ const game = {
 	startGame(){
 		this.tom = new Tomagotchi('Kirby', 'img', 5, 5, 5);
 		this.timer();
+	},
+
+	nightPhase(){
+		$('style').append('body {background-color: midnightBLue;} button {background-color: purple;} .game {background-color: purple; border: 1px solid lavender;} .display1 {background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)}');
+		$('#kirby').hide();
+		$('#image').prepend('<img src="/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/sleepingKirby.gif" id="sleepingKirby">');
 	},
 
 	endGame() {

@@ -34,7 +34,7 @@ button {
 
 .display1 {
 	display: flex;
-	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif);
+	background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/kirbysky2.jpeg);
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
@@ -43,6 +43,11 @@ button {
 }
 
 #kirby {
+	height: 60px;
+	margin-top: 10px;
+}
+
+#sleepingKirby{
 	height: 60px;
 	margin-top: 10px;
 }
