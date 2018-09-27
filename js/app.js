@@ -200,7 +200,7 @@ const game = {
 	counter: 0,
 	intervalID: null,
 	nightPhaseAesthetic: 'body {background-color: midnightBLue;} button {background-color: purple;} .game {background-color: purple; border: 1px solid lavender;} .display1 {background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)}',
-	sleepingKirby: '<img src="/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/sleepingKirby.gif" id="sleepingKirby">',
+
 	timer(){ 
 		this.intervalID = setInterval(()=>{
 			this.counter++; 
@@ -253,11 +253,11 @@ const game = {
 		clearInterval(this.intervalID);
 		$('style').append(this.nightPhaseAesthetic);
 		$('#kirby').hide();
+		$('#sleepingKirby').show();
 		$feed.hide();
 		$play.hide();
 		$lightsOut.hide();
-		$('.top').append('<button id="lightsOn">Lights on!</button>');
-		$('#image').prepend(this.sleepingKirby);
+		$lightsOn.show();
 		this.tom.sleepiness = 0; 
 		
 	},
@@ -267,6 +267,7 @@ const game = {
 		$('style').contents().hide();
 		$lightsOn.hide();
 		$('#kirby').show();
+		$('#sleepingKirby').hide();
 		$feed.show();
 		$play.show();
 		$lightsOut.show();
