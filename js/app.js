@@ -200,6 +200,7 @@ GAME OBJECT
 const game = {
 	tom: null,
 	counter: 0,
+	counter2: 0,
 	intervalID: null,
 	nightPhaseAesthetic: 'body {background-color: midnightBLue;} button {background-color: purple;} .game {background-color: purple; border: 1px solid lavender;} .display1 {background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)}',
 
@@ -212,11 +213,20 @@ const game = {
 				this.statBoost(statInteger);	
 			};
 				/*LOWER or RAISE modulus to make game SHORTER or LONGER*/
-			if ((this.counter % 60) === 0) {
-				this.age();
-			};
 			this.updateStats();
 			this.endGame();
+		}, 1000)
+	},
+
+	ageTimer(){ 
+		setInterval(()=>{
+			this.counter2++;
+			if ((this.counter2 % 60) === 0) {
+				this.age();
+			} if ((this.counter2 % 63) === 0) {
+				this.birthdayOver();
+			}
+
 		}, 1000)
 	},
 
@@ -235,8 +245,11 @@ const game = {
 
 	age() {
 		this.tom.age++;
-		console.log('happy birthday!');
+		$('.bday').show()
+	},
 
+	birthdayOver() {
+		$('.bday').hide()
 	},
 
 	updateStats() {
@@ -249,6 +262,7 @@ const game = {
 	startGame(){
 		this.tom = new Tomagotchi('Kirby', 5, 5, 5);
 		this.timer();
+		this.ageTimer();
 	},
 
 	nightPhase(){
