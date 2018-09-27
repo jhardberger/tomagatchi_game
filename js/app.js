@@ -129,7 +129,8 @@ BUTTON ZONE:
 ***********************************************************************/
 
 let $feed = $('#feed');
-let $lights = $('#lights');
+let $lightsOut = $('#lights');
+let $lightsOn = $('#lightsOn');
 let $play = $('#play');
 let $start = $('#start');
 
@@ -143,13 +144,23 @@ $feed.on('click', function(){
 
 	//lightsOutButton on click -> calls night()
 
-$lights.on('click', function(){
+$lightsOut.on('click', function(){
 	console.log('turn of the lights')
 	// game.tom.sleepiness--;
 	game.nightPhase();
 
 	game.updateStats();
 });
+
+	//lightsOn button -> ends night() phase
+
+$lightsOn.on('click', function(){
+	console.log('daytime!')
+	game.endNightPhase();
+
+	game.updateStats();
+});
+
 
 	//playButton -> calls play()
 
@@ -188,6 +199,8 @@ const game = {
 	tom: null,
 	counter: 0,
 	intervalID: null,
+	nightPhaseAesthetic: 'body {background-color: midnightBLue;} button {background-color: purple;} .game {background-color: purple; border: 1px solid lavender;} .display1 {background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)}',
+	sleepingKirby: '<img src="/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/sleepingKirby.gif" id="sleepingKirby">',
 	timer(){ 
 		this.intervalID = setInterval(()=>{
 			this.counter++; 
@@ -237,9 +250,27 @@ const game = {
 	},
 
 	nightPhase(){
-		$('style').append('body {background-color: midnightBLue;} button {background-color: purple;} .game {background-color: purple; border: 1px solid lavender;} .display1 {background-image: url(/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/nighttime.gif)}');
+		clearInterval(this.intervalID);
+		$('style').append(this.nightPhaseAesthetic);
 		$('#kirby').hide();
-		$('#image').prepend('<img src="/Users/john/salty-sardines/09-25-inputs-tomagotchi/tomagatchi_project/css/game_images/sleepingKirby.gif" id="sleepingKirby">');
+		$feed.hide();
+		$play.hide();
+		$lightsOut.hide();
+		$('.top').append('<button id="lightsOn">Lights on!</button>');
+		$('#image').prepend(this.sleepingKirby);
+		this.tom.sleepiness = 0; 
+		
+	},
+
+	endNightPhase(){
+		console.log('daytime!')
+		$('style').contents().hide();
+		$lightsOn.hide();
+		$('#kirby').show();
+		$feed.show();
+		$play.show();
+		$lightsOut.show();
+		this.timer();
 	},
 
 	endGame() {
