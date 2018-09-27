@@ -6,9 +6,8 @@ TOMAGOTCHI CLASS + INSTANT(FOR NOW)
 
 class Tomagotchi {
 
-	constructor(name, img, hunger, sleepiness, boredom) {
+	constructor(name, hunger, sleepiness, boredom) {
 		this.name = name;
-		this.img = img;
 		this.age= 0;
 		this.hunger = hunger;
 		this.sleepiness = sleepiness;
@@ -19,10 +18,6 @@ class Tomagotchi {
 	die(){
 		console.log(this.name + "dead");
 		this.alive = false;
-	}
-
-	isDead() {
-		
 	}
 };
 
@@ -165,8 +160,15 @@ $lightsOn.on('click', function(){
 	//playButton -> calls play()
 
 $play.on('click', function(){
-	console.log('have some fun w kirb')
-	game.tom.boredom--;
+	let howMuchFun = Math.floor(Math.random() * 3);
+	if (howMuchFun === 0 || howMuchFun === 1) {
+		game.tom.boredom--;
+		console.log('have some fun w kirb');
+
+	} if (howMuchFun === 2) {
+		game.tom.boredom -= 3;
+		console.log('have a big time w kirb');
+	}
 	game.updateStats();
 });    
 
@@ -245,29 +247,29 @@ const game = {
 	},
 
 	startGame(){
-		this.tom = new Tomagotchi('Kirby', 'img', 5, 5, 5);
+		this.tom = new Tomagotchi('Kirby', 5, 5, 5);
 		this.timer();
 	},
 
 	nightPhase(){
 		clearInterval(this.intervalID);
-		$('style').append(this.nightPhaseAesthetic);
 		$('#kirby').hide();
-		$('#sleepingKirby').show();
 		$feed.hide();
 		$play.hide();
 		$lightsOut.hide();
+		$('style').text(this.nightPhaseAesthetic);
+		$('#sleepingKirby').show();
 		$lightsOn.show();
-		this.tom.sleepiness = 0; 
+		this.tom.sleepiness -= 3; 
 		
 	},
 
 	endNightPhase(){
 		console.log('daytime!')
-		$('style').contents().hide();
 		$lightsOn.hide();
-		$('#kirby').show();
 		$('#sleepingKirby').hide();
+		$('style').text(' ');
+		$('#kirby').show();
 		$feed.show();
 		$play.show();
 		$lightsOut.show();
